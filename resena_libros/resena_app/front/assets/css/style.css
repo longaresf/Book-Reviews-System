@@ -1,0 +1,92 @@
+body {background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+    text-align:center;}
+.rating {
+    width: 400px;
+    margin: 0 auto 1em;
+    font-size: 45px;
+    overflow: hidden;
+    }
+.rating input {
+    float: right;
+    opacity: 0;
+    position: absolute;
+    }
+.rating a {
+    color: #aaaaaa;
+    }
+.rating {
+    color: #aaaaaa;
+    text-decoration: none;
+    -webkit-transition: color .4s;
+    -moz-transition: color .4s;
+    -o-transition: color .4s;
+    transition: color .4s;
+    }
+.rating a:hover,
+.rating a:hover ~ a,
+.rating a:focus,
+.rating a:focus ~ a		{
+    color: orange;
+    cursor: pointer;
+    }
+.rating2 {
+    direction: rtl;
+    }
+.rating2 a {
+    float: none
+    }
+.follow {
+    width: 400px;
+    margin: 0 auto 1em;
+    font-size: 45px;
+    overflow: hidden;
+    }
+.follow {
+    float: center;
+    color: #aaaaaa;
+    text-decoration: none;
+    -webkit-transition: color .4s;
+    -moz-transition: color .4s;
+    -o-transition: color .4s;
+    transition: color .4s;
+      }
+.bi-heart-fill:hover {
+    color: rgb(244, 137, 137);
+    cursor: pointer;
+    }
+.color1 { color: red; }
+.color2 { color: orange; }
+.color3 { color: #aaaaaa; }
+input[type=checkbox]{
+        display:none;
+    }
+
+.bg-init .fade-in-text {animation: fadeIntext 10s;}
+@keyframes fadeIntext {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+    }
+.video {height: 700px;}
+.bg-init  {background: radial-gradient(#607d8b 15%, #000000 100%);}
+#search form {margin-left: 50px;}
+#search .asteriskField {display: none;}
+#search .labels {font-weight: bold;}
+
+.card-body .star-ratings-sprite {
+    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
+    font-size: 0;
+    height: 21px;
+    line-height: 0;
+    overflow: hidden;
+    text-indent: -999em;
+    width: 110px;
+    margin: 0 auto;
+    }
+.card-body .star-ratings-sprite-rating {
+    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
+    background-position: 0 100%;
+    float: left;
+    height: 21px;
+    display: block;
+    }
+

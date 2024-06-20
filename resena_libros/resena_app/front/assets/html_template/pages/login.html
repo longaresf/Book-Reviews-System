@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block mi_contenedor %}
+    <div class="row row-cols-1 row-cols-md-3 g-4 pt-5">
+        <div class="col mx-auto">
+            <div class="card bg-dark text-white-50" style="width: 40rem;">
+                <h6 class="card-subtitle pt-3 text-center text-white">Inicia Sesión</h6>
+                  <div class="card-body">
+                    <form action="" method="POST">{% csrf_token %}
+                        {{ form|crispy}}
+                        <div class="row small">
+                            <button type="submit" class="btn btn-outline-light btn-lg px-5 col-3 fs-6">Iniciar</button>
+                            <div class="col-1"></div>
+                            <a class="btn btn-outline-light btn-lg px-5 col-3 fs-6" href="/">Volver</a>
+                            <div class="col-1"></div>
+                            <a class="btn btn-outline-light btn-lg px-5 col-4 fs-7" href="{% url 'password_reset' %}">Restablecer contraseña</a>
+                      </div>
+                    </form>
+                    <p class="text-center pt-3 fw-semibold"></p>
+                    <p class="text-center"></p>
+                  </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

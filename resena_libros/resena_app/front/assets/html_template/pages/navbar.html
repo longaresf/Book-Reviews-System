@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<nav class="navbar navbar-dark bg-dark fixed-top">
+  <div class="container-fluid text-white">
+    <a class="navbar-brand d-none d-sm-none d-md-none d-lg-block" href="/"><img src="/media/images.jpg" alt="Plataforma de Reseñas de Libros" width="50" height="40"> Plataforma de Reseñas de Libros</a>
+<div class="row">
+  <div class="col-5">
+<li class="nav-item dropdown d-flex">
+  <a class="dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="bi bi-person-fill h2"></i></a>
+  <ul class="dropdown-menu">
+    {% if request.user.is_authenticated %}
+    <li><a class="dropdown-item" href="#">Bienvenido</a></li>
+    <li><a class="dropdown-item" href="#">{{ user.username | upper }}</a></li>
+    <li><a class="dropdown-item" href="{% url 'left' %}?next={{request.path}}"><i class="bi bi-person-fill-x"></i> Cerrar Sesión</a></li>
+    {% else %}
+    <li><a class="dropdown-item" href="{% url 'login_page' %}?next={{request.path}}"><i class="bi bi-person-fill"></i> Iniciar Sesión</a>
+    <li><a class="dropdown-item" href="{% url 'register_user' %}?next={{request.path}}"><i class="bi bi-person-vcard-fill"></i> Registrarse</a>
+    {% endif %}
+  </ul>
+</li>
+</div>
+<div class="col-1">
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"  aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+  </div>
+    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel"><i class="bi bi-gear-fill"></i> Opciones</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        {% if request.user.is_authenticated %}
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-person-fill"></i> Perfil usuario</a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="{% url 'perfil_user' %}?next={{request.path}}"><i class="bi bi-card-image"></i> Mostrar</a></li>
+              <li><a class="dropdown-item" href="{% url 'update_user' %}?next={{request.path}}"><i class="bi bi-pencil-square"></i> Modificar</a></li>
+              <li>
+            </ul>
+          </li>
+          {% for group in request.user.groups.all %}
+          {% if group.name == 'administrador' %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Publicar
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="{% url 'register_book' %}?next={{request.path}}"><i class="bi bi-images"></i> Crear Publicación</a></li>
+            </ul>
+          </li>
+          {% endif %}
+          {% endfor %}
+          <li class="nav-item">
+          <a class="nav-link" href="{% url 'resena_list' %}?next={{request.path}}"><i class="bi bi-card-text"></i> Ver Reseñas</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="{% url 'contacto' %}?next={{request.path}}"><i class="bi bi-envelope-fill"></i> Contacto</a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'left' %}?next={{request.path}}"><i class="bi bi-person-x"></i> Cerrar Sesión</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'login_page' %}?next={{request.path}}"><i class="bi bi-person-fill"></i> Iniciar Sesión</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'register_user' %}?next={{request.path}}"><i class="bi bi-person-vcard-fill"></i> Registrarse</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+</html>

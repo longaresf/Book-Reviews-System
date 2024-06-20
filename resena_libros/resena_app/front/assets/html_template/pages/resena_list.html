@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block mi_contenedor %}
+<h6 class="card-subtitle pt-5 text-center text-white">RESEÑAS</h6>
+    <div class="card-body ps-5">
+        <div class="pt-5 pb-3 row row-cols-1 row-cols-md-4 g-4">
+            {% for i in resenas %}
+            <div class="col">
+                <div class="card h-100" style="width: 18rem;">
+                <img src="/media/{{ i.libro.imagen }}" class="card-img-top" alt="{{ i.titulo }}" height="200" width="200" >
+                    <div class="card-body">
+                    <h5 class="card-title"> {{ i.libro }}</h5>
+                    <p class="card-text"><b>Usuario:</b> {{ i.usuario.first_name }}</p>
+                    <p class="card-text"><b>Calificacion</b></p>
+                    <div class="star-ratings-sprite"><span class="star-ratings-sprite-rating" style="width: {{ i.calificacion }}%"></span></div>
+                    <p class="card-text pt-3"><b>Comentario:</b> {{ i.comentario }}</p>
+                    <p class="card-text"><b>Fecha:</b> {{ i.fecha_resena }}</p>
+                    </div>
+                </div>
+            </div>
+                {% endfor %}
+        </div>
+            <div class="row pt-3">
+                <div class="col-5"></div>
+                <a class="btn btn-outline-light btn-lg px-5 col-2" href="{% url 'home' %}">Volver</a>
+            </div>
+    </div>
+{% endblock %}
