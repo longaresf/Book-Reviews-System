@@ -86,17 +86,21 @@ Instrucciones para ejecutar el proyecto una vez instalado.
 - }
 - python manage.py makemigrations
 - python manage.py migrate
-- python manage.py createsuperuser
--   admin
--   Contraseña: 123456
-- python manage.py loaddataresena_libros.json
+
+- Cargar Base de datos
+- python manage.py loaddata resena_libros.json
 
 ## Credenciales de Acceso
 
 ### Para Usuario Tipo Administrador
 
 - admin
-- Contraseña: 123456
+- Contraseña: Prueba12
+
+### Para Usuario 
+
+- Francisco
+- Contraseña: Prueba12
 
 ## Autor
 
