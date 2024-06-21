@@ -1,11 +1,9 @@
-# Titulo del proyecto
-
-Plataforma de Reseñas de Libros
-
+# Plataforma de Reseñas de Libros
+Proyecto de plataforma de reseñas de libros para Bootcamp Desafío Latam.
 
 ## Descripción del proyecto
 
-Aplicación para reseñar las opciones de los lectores acerca de los libros.
+Aplicación web para la gestión de reseñas de libros. Características: Registro de usuarios: lectores y administradores. Edición de datos del usuario. Inicio de sesión de usuario. Registro de autores y libros. Registros de reseñas. Galería de imágenes de libros. Seguir al autor. Recuperación de contraseña por correo electrónico.
 
 ## Capturas de Pantalla del Proyecto
 
@@ -74,16 +72,8 @@ Instrucciones para ejecutar el proyecto una vez instalado.
 # paso 1
 ```
 - config settings.py
-- DATABASES = {
--     'default': {
--         'ENGINE': 'django.db.backends.postgresql',
--         'NAME': env('DB_NAME'),
--         'USER': env('DB_USER'),
--         'PASSWORD': env('DB_PASSWORD'),
--         'HOST': env('DB_HOST'),
--         'PORT': env('DB_PORT'),
--     }
-- }
+- DATABASES
+
 - python manage.py makemigrations
 - python manage.py migrate
 
